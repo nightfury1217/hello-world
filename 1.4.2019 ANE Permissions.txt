@@ -1,0 +1,31 @@
+﻿OU နဲ႔ Policy တြဲျပီးတည္ေဆာက္မယ္
+===================
+1.control panal ကို ပိတ္ခ်င္တယ္ဆိုရင္ gpedit.msc>User Configuration>Poilicies>Administrative Templates>Control panel>Prohibit...>enable
+GPO (Group Policy Object)
+================
+1.> gpmc.msc>OU container>Right Click>Configure..>Edit
+OU Exercise
+=======
+- Domain Controller တြင္ user1, user2 and user3 တည္ေဆာက္ပါ။
+- Sale အမည္ျဖင့္ OU တည္ေဆာက္ျပီး user1, user2 ကို OU  ထဲထည့္ပါ။
+- Group Policy တြင္ Control Panel ကို ပိတ္ပါ။
+- Domain Users မ်ားအား Client တြင္ Login ဝင္ျပီး Control Panel အားဖြင့္ပါ။( RUN > Control)
+
+Permission in Windows Server
+==================
+Permission က ႏွစ္မ်ိဴးရိွတယ္ sharing ( network ) and security ( Local ကိုယ့္ကြန္ပ်ဳတာကို ကန္႔သတ္တာျဖစ္တယ္ ) 
+ွSecurity မွာ Implicit Explicit ရိွတယ္ / Read/write permission ဆိုတာလည္း ရိွတယ္။
+ၤFAT 32 မွာ sharing permission ပဲရတယ္။ NTFS မွာ sharing ေရာ security ေရာရတယ္။
+Everyone နဲ႔ share ပါက read permission ကိုသာ အသံုးျပဳသင့္သည္။
+တစ္ဦးတစ္ေယာက္တည္းကို share ပါက full control ေပးသင့္တယ္။(Explicit တိုက္ရုိက္)
+Home Folder ျပဳလုပ္မည္ဆိုပါက Server တြင္ (Share with user) Run > \\server ip address \ share folder name ( copy link )
+(run>dsa.msc) user>right click>properties>profile>connect>past link>apply>ok
+Disk Quota ျပဳလုပ္မည္ဆိုပါက Home folder Drive ကို Right Click>Properties>Quota>enable pass>Quota entries>
+
+Administrators Group ရဲ႔ Member ေတြဟာ Server မွာရိွသည့္ Data မ်ားအား Full Permission ရျပီး Domain Users Group ရဲ႔ Member ေတြဟာ Read Permission ရသည္။
+Data မ်ားအား Full Permission ရျပီး Domain Users Group ရဲ Member ေတြဟာ Read Permission ရသည္။
+
+Disable inheritance permission ( permission ကို ပိတ္ျခင္း )
+=================================
+> Server တြင္ Folder တစ္ခုတည္ေဆာက္ပါ Folder>right click>properties>security>advanced>disable inheritance>apply>ok
+
